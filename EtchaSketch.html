@@ -1,0 +1,74 @@
+<html> 
+<meta charset="utf-8">
+<style>
+input{
+    width:5%;
+}
+</style>
+<canvas class= "canvas"  id="myCanvas" width="500" height="500" style="border:50px solid rgb(180, 0, 0);">
+    </canvas>
+    <br>
+    <input id = "in" type="text" onkeydown=input()>
+<body> 
+    <script>
+    iox = 0;
+    ioy = 0;
+function init() {
+  window.requestAnimationFrame(draw);
+}
+function input(){
+    var input = document.getElementById("in").value;
+    document.getElementById("in").value = "";
+    if(input[input.length-1] === "a"){ 
+        if(iox >= 0){
+            iox = -1;
+            ioy = 0;
+        }
+    }
+    if(input[input.length-1] === "s"){
+        if(ioy <= 0){
+            ioy = 1;
+            iox = 0;
+        }
+    }
+    if(input[input.length-1] === "d"){
+        if(iox <= 0){
+            iox = 1;
+            ioy = 0;
+        }
+       
+    }
+    if(input[input.length-1] === "w"){
+        if(ioy >= 0){
+            ioy = -1;
+            iox = 0;
+        }
+    }
+}
+    r3 =  Math.floor(Math.random() * 500);
+    r4 =  Math.floor(Math.random() * 500);
+    var Play = true;
+    r1 =  Math.floor(Math.random() * 500);
+    r2 =  Math.floor(Math.random() * 500);
+    function draw(){
+    input();  
+    c = document.getElementById("myCanvas");
+    ctx = c.getContext("2d");
+    ctx.moveTo(0, 0);
+    ctx.beginPath();
+    ctx.arc(r1, r2, 5, 0, 2 * Math.PI);
+    ctx.stroke();
+    console.log(iox);
+    r1 += iox;
+    r2 += ioy;
+    ctx.arc(r1, r2, 5, 0, 2 * Math.PI);
+    ctx.stroke();
+    }
+setInterval(function(){init()},50)
+;
+
+
+ 
+</script>
+</body>
+</html>
