@@ -1,2 +1,2 @@
-# Snake
-Simple snake program
+# EtchASketch
+Simple EtchASketch Program
