@@ -1,2 +1,0 @@
-# EtchASketch
-Simple EtchASketch Program
