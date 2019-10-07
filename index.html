@@ -16,6 +16,10 @@ input{
 function init() {
   window.requestAnimationFrame(draw);
 }
+function input2(){
+    iox = 0;
+    ioy = 0;
+}
 function input(){
     var input = document.getElementById("in").value;
     document.getElementById("in").value = "";
@@ -51,6 +55,7 @@ function input(){
     r1 =  Math.floor(Math.random() * 500);
     r2 =  Math.floor(Math.random() * 500);
     function draw(){
+    input2();
     input();  
     c = document.getElementById("myCanvas");
     ctx = c.getContext("2d");
